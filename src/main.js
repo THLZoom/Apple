@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import router from './router/index'
+import router from './router/router'
 import store from './store/store'
 import echarts from 'echarts'
 import ElementUI from 'element-ui'
