@@ -5,22 +5,25 @@ import store from '../store/store'
 import Layout from '../components/layout'
 //未找到
 import NoFound from '../components/404'
-//水果
-import Fruits from '../views/fruits'
+//学生信息页
+import Students_info from '../views/students_info'
 
 Vue.use(Router)
 
 //路由路径表
 const routes = [
   {
-    path: '',
+    path: '/',
     component: Layout,
+    name: '',   //无二级菜单则为空
+    leaf: true,   //无二级菜单为true
+    icons: 'iconfont icon-xuesheng',   //菜单节点图标
     children: [
-      {path: '/',redirect: '/Fruits'},
-      {path: '/Fruits',component: Fruits},
+      {path: '/Students_info',component: Students_info,name: '学生信息'},
     ]
   }
 ];
+
 //挂载路由表
 const router = new Router({
   routes
