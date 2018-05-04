@@ -37,6 +37,14 @@ export default {
     }
   },
   methods:{
+    //获取学生信息
+    getStuInfo(){
+      this.axios.get('test/user/users')
+      .then(res => {
+        console.log(res)
+        this.tableData = res.data.data;
+      })
+    },
     //添加学生信息
     addStu(){
       let info = this.stuInfo;
@@ -48,13 +56,17 @@ export default {
         })
         return
       }
-      this.tableData.push({
+      this.axios.post('test/user/add',{
         name: this.stuInfo.stu_name,
         class: this.stuInfo.stu_class,
         age: this.stuInfo.stu_age,
-      });
+      })
+      .then(res => {
+        console.log(res);
+        Object.keys(info).map(a => info[a] = '');
+        this.getStuInfo();
+      })
       //清空输入框数据
-      Object.keys(info).map(a => info[a] = '');
     },
     //删除学生信息
     deleteStu(row){
@@ -63,6 +75,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
+
         this.tableData = [];
         this.$message({
           type: 'success',
@@ -72,6 +85,9 @@ export default {
               
       });
     }
+  },
+  mounted:function(){
+    this.getStuInfo();
   }
 }
 </script>
