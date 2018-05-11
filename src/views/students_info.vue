@@ -1,10 +1,30 @@
 <template>
   <div class="students_info">
     <div class="tools">
-      <el-input class="stuInfo" v-model="stuInfo.stu_name" placeholder="姓名" size="mini"></el-input>
-      <el-input class="stuInfo" v-model="stuInfo.stu_class" placeholder="班级" size="mini"></el-input>
-      <el-input class="stuInfo" v-model="stuInfo.stu_age" placeholder="年龄" size="mini"></el-input>
-      <el-button class="addBtn" type="primary" icon="el-icon-plus" size="mini" @click="addStu"></el-button>
+      <el-row :gutter="10">
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
+          <el-input style="min-width:150px" class="stuInfo" v-model="stuInfo.stu_name" placeholder="姓名" size="mini"></el-input>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
+          <el-input style="min-width:60px" class="stuInfo" v-model="stuInfo.stu_stuNo" placeholder="学号" size="mini"></el-input>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
+          <el-input style="min-width:150px" class="stuInfo" v-model="stuInfo.stu_sex" placeholder="性别" size="mini"></el-input>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
+          <el-input style="min-width:60px" class="stuInfo" v-model="stuInfo.stu_age" placeholder="年龄" size="mini"></el-input>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
+          <el-input style="min-width:150px" class="stuInfo" v-model="stuInfo.stu_contact" placeholder="联系人" size="mini"></el-input>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
+          <el-input style="min-width:150px" class="stuInfo" v-model="stuInfo.stu_phone" placeholder="联系号码" size="mini"></el-input>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4">
+          <el-button class="addBtn" type="primary" icon="el-icon-plus" size="mini" @click="addStu"></el-button>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="4" :lg="4" :xl="4"></el-col>
+      </el-row>
     </div>
     
     <el-table v-loading="loading" :data="tableData" ref="tableData" :border="true" style="width: 100%;" size="mini">
@@ -98,19 +118,10 @@ export default {
     flex-direction: column;
   }
   .tools{
-    min-width: 600px;
     height: 50px;
     background: #f2f2f2;
     padding: 10px 10px;
     margin: 10px 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .stuInfo{
-    width: 15%;
-    min-width: 150px; 
-    margin-left: 20px;
   }
   .addBtn{
     margin-left: 20px;
